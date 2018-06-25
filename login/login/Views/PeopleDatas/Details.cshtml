@@ -1,0 +1,215 @@
+﻿@model login.Models.PeopleData
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Manage/_Layout.cshtml";
+}
+
+<title> Dashboard | Editando a @Model.Nombre</title>
+
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+<!-- Bootstrap -->
+@*<link type="text/css" rel="stylesheet" href="~/css/bootstrap.min.css" />*@
+@*
+    <!-- Owl Carousel -->
+    <link type="text/css" rel="stylesheet" href="~/css/owl.carousel.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/owl.theme.default.css" />
+
+    <!-- Magnific Popup -->
+    <link type="text/css" rel="stylesheet" href="~/css/magnific-popup.css" />
+*@
+<!-- Font Awesome Icon -->
+@*<link rel="stylesheet" href="~/css/font-awesome.min.css">
+*@
+<!-- Custom stlylesheet -->
+@*<link type="text/css" rel="stylesheet" href="~/css/style.css" />*@
+
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    @*Aqui va el breadcrumb*@
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a asp-controller="Manage" asp-action="Dashboard">Dashboard</a></li>
+                    <li><a asp-action="Index">Empleados</a></li>
+                    <li class="active">@Model.Nombre @Model.Apellido</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Varela Round', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        overflow-x: hidden;
+        color: #868F9B;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        color: #10161A;
+    }
+
+    .blog-author {
+        margin: 40px 0px;
+    }
+
+        .blog-author .media .media-left {
+            padding-right: 20px;
+        }
+
+        .blog-author .media {
+            padding: 20px;
+            border: 1px solid #EEE;
+        }
+
+            .blog-author .media .media-heading {
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #EEE;
+            }
+
+                .blog-author .media .media-heading h3 {
+                    display: inline-block;
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+
+                .blog-author .media .media-heading .author-social {
+                    float: right;
+                }
+
+        .blog-author .author-social a {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 3px;
+            margin-left: 5px;
+            color: #FFF;
+            background-color: #6195FF;
+        }
+</style>
+<div class="blog-author">
+    <div class="media">
+        <div class="media-left">
+            <img class="media-object" src="~/images/@Model.Image" width="150" height="150" alt="">
+        </div>
+        <div class="media-body">
+            <div class="media-heading">
+                <h3>@Model.Nombre @Model.Apellido</h3>
+                <div class="author-social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p>Cargo: @Model.Cargo</p>
+                <p>Celular: @Model.Celular</p>
+            </div>
+            <div class="col-sm-3">
+                <p> Sueldo : @Model.Sueldo</p>
+                <p> Sexo: @Model.Sexo</p>
+            </div>
+            <div class="col-sm-4">
+                <p>Fecha de Nacimiento: @Model.FechaNacimiento.Date</p>
+                <p>Fecha de Ingreso: @Model.FechaIngreso.Date</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@*<div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Apellido)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Sexo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cargo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Celular)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Celular)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Sueldo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Sueldo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FechaNacimiento)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FechaIngreso)
+            </dd>
+        </dl>
+    </div>*@
+<div class="row">
+    <div class="px-sm-4">
+        <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger ">Eliminar a @Model.Nombre</a>
+
+        <a asp-action="Index" class="btn btn-dark">Volver a la Lista de Empleados</a>
+
+        <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-dropbox">Editar a @Model.Nombre</a>
+    </div>
+</div>
+
+

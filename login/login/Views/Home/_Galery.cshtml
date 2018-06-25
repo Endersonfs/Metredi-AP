@@ -1,0 +1,17 @@
+﻿@model login.Models.GaleryData
+
+
+    <div class="col-md-4 col-xs-6 work">
+        <img class="img-responsive" src="~/images/@Model.Image" alt="">
+        <div class="overlay"></div>
+        <div class="work-content">
+            <span>@Model.Nombre</span>
+            <h3>@Model.Description</h3>
+            <div class="work-link">
+                <a href="#"><i class="fa fa-external-link"></i></a>
+                <a class="lightbox" href="~/images/@Model.Image"><i class="fa fa-search"></i></a>
+            </div>
+        </div>
+    </div>
+
+

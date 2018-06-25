@@ -1,0 +1,109 @@
+﻿@model IEnumerable<login.Models.GaleryData>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Manage/_Layout.cshtml";
+}
+<title>Galeria</title>
+<style>
+    .galeria {
+        /*left: 0;
+    top: 0;*/
+        width: 70px !important;
+        height: 70px !important;
+        /*border-radius: 50%;*/
+    }
+</style>
+
+
+
+<div class="content mt-5">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="pull-right" asp-action="create">
+                            <i class="fa sfa-user-plus fa-2x"></i>
+                        </a>
+                        <strong class="card-title">Lista de empleados </strong>
+
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Image)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Nombre)
+
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+
+                                            <img src="~/images/@Html.DisplayFor(modelItem => item.Image)" class="galeria" />
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class=" btn btn-outline-primary  dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Acciones
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="btn btn-github col-lg-12" asp-action="Details" asp-route-id="@item.ID">Ver más</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="btn btn-dropbox col-lg-12" asp-action="Edit" asp-route-id="@item.ID">Editar</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="btn btn-danger btn-block" asp-action="Delete" asp-route-id="@item.ID">Eliminar</a>
+                                                
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/assets/js/lib/data-table/datatables.min.js"></script>
+<script src="~/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="~/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="~/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="~/assets/js/lib/data-table/jszip.min.js"></script>
+<script src="~/assets/js/lib/data-table/pdfmake.min.js"></script>
+<script src="~/assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="~/assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="~/assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="~/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="~/assets/js/lib/data-table/datatables-init.js"></script>
+
+<script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#bootstrap-data-table-export').DataTable();
+                        });
+</script>
+

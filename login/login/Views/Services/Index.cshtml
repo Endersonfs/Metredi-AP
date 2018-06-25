@@ -1,0 +1,132 @@
+﻿@model IEnumerable<login.Models.ServicesData>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Manage/_Layout.cshtml";
+}
+
+<style>
+    .sfa-user-plus:before {
+        content: "\f234";
+        color: white;
+        background-color: darkmagenta;
+        border: 7px solid darkmagenta;
+        border-radius: 30px;
+    }
+</style>
+
+
+<title>  Dashboard | Lista de Servicios</title>
+
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    @*Aqui va el breadcrumb*@
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a asp-controller="Manage" asp-action="Dashboard">Dashboard</a></li>
+                    <li><a asp-action="Index">Servicios</a></li>
+                    <li class="active">Lista de Servicios</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content mt-5">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="pull-right" asp-action="create">
+                            <i class="fa sfa-user-plus fa-2x"></i>
+                        </a>
+                        <strong class="card-title">Lista de Servicos </strong>
+
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Nombre)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Descripcion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.icon)
+
+                                    </th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td>
+
+                            <i class="fa fa-@Html.DisplayFor(modelItem => item.icon)"> @Html.DisplayFor(modelItem => item.icon)</i>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class=" btn btn-outline-primary  dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="btn btn-github col-lg-12" asp-action="Details" asp-route-id="@item.ID">Ver más</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="btn btn-dropbox col-lg-12" asp-action="Edit" asp-route-id="@item.ID">Editar</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="btn btn-danger btn-block" asp-action="Delete" asp-route-id="@item.ID">Eliminar</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+                    <script src="~/assets/js/lib/data-table/datatables.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/jszip.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/pdfmake.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/vfs_fonts.js"></script>
+                    <script src="~/assets/js/lib/data-table/buttons.html5.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/buttons.print.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+                    <script src="~/assets/js/lib/data-table/datatables-init.js"></script>
+
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#bootstrap-data-table-export').DataTable();
+                        });
+                    </script>
+

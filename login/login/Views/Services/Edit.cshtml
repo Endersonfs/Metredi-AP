@@ -1,0 +1,204 @@
+﻿@model login.Models.ServicesData
+@using login.Models.Enumeradores
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Manage/_Layout.cshtml";
+}
+<title> Dashboard | Editando</title>
+
+<style>
+    .contact {
+        margin: 15px 0px;
+        text-align: center;
+    }
+
+        .contact i {
+            font-size: 36px;
+            color: #6195FF;
+            margin-bottom: 20px;
+        }
+
+    .contact-form {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+        .contact-form .input {
+            margin-bottom: 20px;
+        }
+
+
+            /*.contact-form .input:nth-child(1), .contact-form .input:nth-child(2) {
+                width: calc(50% - 10px);
+            }*/
+
+            .contact-form .input:nth-child(2) {
+                margin-left: 15px;
+            }
+
+    .main-btn:hover, .white-btn:hover, .outline-btn:hover {
+        opacity: 0.8;
+    }
+
+    .main-btn {
+        background: #6195FF;
+        color: #FFF;
+    }
+
+    .main-btn, .white-btn, .outline-btn {
+        display: inline-block;
+        padding: 10px 35px;
+        margin: 3px;
+        border: 2px solid transparent;
+        border-radius: 3px;
+        -webkit-transition: 0.2s opacity;
+        transition: 0.2s opacity;
+    }
+
+    .section-header .title {
+        text-transform: capitalize;
+    }
+
+    .section-header {
+        position: relative;
+        margin-bottom: 60px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        color: #10161A;
+    }
+
+    .md-padding {
+        padding-top: 50px;
+    }
+
+    .section {
+        position: relative;
+    }
+
+    textarea {
+        padding: 10px 10px;
+        min-height: 80px;
+        resize: vertical;
+    }
+
+    div[class*="col-"] {
+        float: left;
+    }
+
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], input[type="url"], input[type="tel"], textarea, select {
+        height: 40px;
+        width: 100%;
+        border: none;
+        border-bottom-width: medium;
+        border-bottom-style: none;
+        border-bottom-color: currentcolor;
+        background: #F4F4F4;
+        border-bottom: 2px solid #EEE;
+        color: #354052;
+        padding: 0px 10px;
+        opacity: 0.5;
+        -webkit-transition: 1.2s border-color, 1.2s opacity;
+        transition: 1.2s border-color, 1.2s opacity;
+    }
+
+    textarea {
+        padding: 10px 10px;
+        min-height: 80px;
+        resize: vertical;
+    }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
+            border-bottom-color: #3e73cb;
+            opacity: 1;
+        }
+
+        input[type="text"]:active, input[type="email"]:active, input[type="password"]:active, input[type="number"]:active, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:active, select:active {
+            border-bottom-color: #3e73cb;
+        }
+
+    .content {
+        padding: 0 15px;
+    }
+</style>
+
+
+
+
+<hr />
+
+
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="contact" class="section md-padding">
+
+                            <!-- Container -->
+                            <div class="container">
+
+                                <!-- Row -->
+                                <div class="row">
+
+                                    <!-- Section-header -->
+                                    <div id="contact" class="section md-padding">
+
+                                        <!-- Container -->
+                                        <div class="container">
+
+                                            <!-- Row -->
+                                            <div class="row">
+
+                                                <!-- Section-header -->
+
+                                                <div class="col-sm-12 col-sm-offset-7">
+                                                    <div class="section-header text-center">
+                                                        <h2 class="title">@Model.Nombre</h2>
+                                                    </div>
+                                                </div>
+                                                <!-- /Section-header -->
+                                                <!-- contact -->
+
+                                                <div class="col-md-12 col-md-offset-2">
+                                                    <form asp-action="edit" class="contact-form">
+                                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                        <input asp-for="Nombre" class="input" placeholder="Nombre del Servicio">
+                                                        <span asp-validation-for="Nombre" role="alertdialog" class="alert text-danger"></span>
+                                                        <select asp-for="icon" class="input " asp-items="@Html.GetEnumSelectList<IconType>()"></select>
+                                                        <span asp-validation-for="icon" class="text-danger"></span>
+                                                        @*<input type="text" class="input" placeholder="Subject">*@
+                                                        <textarea asp-for="Descripcion" class="input" placeholder="Descripción"></textarea>
+                                                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                                                        <button type="submit" class="main-btn">Guardar</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

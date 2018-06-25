@@ -1,0 +1,23 @@
+﻿@using login.Views.Manage
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+@*<ul class="">
+    <li class=""></li>
+    <li class=""></li>
+    
+    <li class=""></li>
+</ul>*@
+
+
+    <li><i class="@ManageNavPages.IndexNavClass(ViewContext)menu-icon fa fa-info"></i><a asp-controller="Manage"  asp-action="Index">Información</a></li>
+    <li><i class=" @ManageNavPages.ChangePasswordNavClass(ViewContext)menu-icon fa fa-key"></i><a asp-controller="Manage" asp-action="ChangePassword">Contraseña</a></li>
+    <li><i class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)menu-icon fa fa-mobile-phone"></i><a asp-controller="Manage" asp-action="TwoFactorAuthentication">TFA</a></li>
+    <li><i class="menu-icon fa fa-user-plus"></i><a asp-controller="Account" asp-action="Nuevo">Añadir Nueva Cuenta</a></li>
+    @if (hasExternalLogins)
+    {
+        <li class="@ManageNavPages.ExternalLoginsNavClass(ViewContext)"><a asp-action="ExternalLogins">External logins</a></li>
+    }
+

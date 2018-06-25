@@ -1,0 +1,269 @@
+﻿@model login.Models.ChooseUs
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Manage/_Layout.cshtml";
+}
+
+<title>Editando Motivo @Model.ID</title>
+<style>
+
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-sm-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+
+    .title, .title a {
+        color: #3c4858;
+        text-decoration: none;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+        font-weight: 300;
+    }
+
+    .fileinput {
+        display: inline-block;
+        margin-bottom: 9px;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .fileinput .thumbnail {
+        border-radius: 50%;
+        max-width: 100px;
+    }
+
+    .fileinput .thumbnail {
+        display: inline-block;
+        margin-bottom: 10px;
+        overflow: hidden;
+        text-align: center;
+        vertical-align: middle;
+        max-width: 250px;
+        box-shadow: 0 10px 30px -12px rgba(0,0,0,.42),0 4px 25px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);
+    }
+
+    .thumbnail {
+        border: 0 none;
+        border-radius: 4px;
+        padding: 0;
+    }
+
+    mbtn:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    .fileinput .mbtn {
+        vertical-align: middle;
+    }
+
+    .mbtn.mbtn-round {
+        border-radius: 30px;
+    }
+
+    .mbtn.mbtn-rose {
+        color: #fff;
+        background-color: #e91e63;
+        border-color: #e91e63;
+        box-shadow: 0 2px 2px 0 rgba(233,30,99,.14),0 3px 1px -2px rgba(233,30,99,.2),0 1px 5px 0 rgba(233,30,99,.12);
+        margin-right: 210px;
+    }
+
+    .mbtn-file {
+        position: relative;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+
+    .mbtn {
+        outline: 0;
+    }
+
+    .mbtn {
+        position: absolute;
+        padding: 12px 30px;
+        margin: .3125rem 1px;
+        font-size: .75rem;
+        font-weight: 400;
+        line-height: 1.428571;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        border-top-color: currentcolor;
+        border-right-color: currentcolor;
+        border-bottom-color: currentcolor;
+        border-left-color: currentcolor;
+        border-radius: .2rem;
+        transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1);
+        will-change: box-shadow,transform;
+        margin-top: 8px;
+        margin-left: -158px;
+    }
+
+    .fileinput-new .fileinput-exists {
+        display: none;
+    }
+
+    .mbtn-file > input {
+        position: fixed;
+        top: 0;
+        right: 0;
+        /*width: 100%;*/
+        height: 100%;
+        margin: 0;
+        /*font-size: 23px;*/
+        cursor: pointer;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        direction: ltr;
+    }
+
+    .userempleo {
+        /*left: 0;
+    top: 0;*/
+        width: 350px !important;
+        height: 250px !important;
+        border-radius: 0%;
+        margin-left: 45px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], input[type="url"], input[type="tel"], textarea, select {
+        height: 40px;
+        width: 100%;
+        border: none;
+        border-bottom-width: medium;
+        border-bottom-style: none;
+        border-bottom-color: currentcolor;
+        background: #F4F4F4;
+        border-bottom: 2px solid #EEE;
+        color: #354052;
+        padding: 0px 10px;
+        opacity: 0.5;
+        -webkit-transition: 0.6s border-color, 0.5s opacity;
+        transition: 0.5s border-color, 0.5s opacity;
+    }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
+            border-bottom-color: #3e73cb;
+            opacity: 1;
+        }
+
+        input[type="text"]:active, input[type="email"]:active, input[type="password"]:active, input[type="number"]:active, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:active, select:active {
+            border-bottom-color: #3e73cb;
+        }
+
+    .input {
+        margin-top: 35px;
+    }
+</style>
+
+
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a asp-controller="Manage" asp-action="Dashboard">Dashboard</a></li>
+                    <li><a asp-action="Index">Lista de motivos</a></li>
+                    <li class="active">Editando Motivos</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="pay-invoice">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h3 class="text-center">Información</h3>
+
+                                    <hr>
+
+                                    <form asp-action="edit" enctype="multipart/form-data">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <div class="col-sm-4">
+
+                                            </div>
+                                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                <div class="fileinput-new">
+                                                    <img src="~/images/@Model.Image" class="userempleo" id="blah" />
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                <div>
+                                                    <span class="mbtn mbtn-round mbtn-rose mbtn-file">
+                                                        <span class="fileinput-new">Cambiar Imagen</span>
+                                                        <span class="fileinput-exists">Cambiar</span>
+
+
+                                                        @**@<input asp-for="Image" accept="image/*"  type="file" name="Img"  onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
+                                                            <input asp-for="Image" class="hidden" hidden value="@Model.Image" />
+                                                    </span>
+                                                    <br />
+
+                                                    <a href="#pablo" class="mbtn mbtn-danger mbtn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i>Remover</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @*<label asp-for="Nombre" class="control-label mb-1"></label>*@
+                                            <input asp-for="Option" placeholder="Nombre" class="input" />
+                                            <span asp-validation-for="Option" class="text-danger"></span>
+                                        </div>
+
+                                        
+                                        <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                            <i class="fa fa-image fa-lg"></i>&nbsp;
+                                            <span id="payment-button-amount">Guardar</span>
+                                            <span id="payment-button-sending" style="display:none;">Guardar…</span>
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- .card -->
+                </div><!--/.col-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

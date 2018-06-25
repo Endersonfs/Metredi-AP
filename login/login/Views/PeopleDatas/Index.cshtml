@@ -1,0 +1,276 @@
+﻿@model IEnumerable<login.Models.PeopleData>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Manage/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css" />
+<!-- DataTables CSS -->
+<link href="~/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+
+<title>Dashboard |Lista de Empleados</title>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+    .sfa-user-plus:before {
+        content: "\f234";
+        color: white;
+        background-color: darkmagenta;
+        border: 7px solid darkmagenta;
+        border-radius: 30px;
+    }
+
+    .userempleo {
+        /*left: 0;
+    top: 0;*/
+        width: 70px !important;
+        height: 70px !important;
+        border-radius: 50%;
+    }
+</style>
+
+
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    @*Aqui va el breadcrumb*@
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a asp-controller="Manage" asp-action="Dashboard">Dashboard</a></li>
+                    <li><a asp-action="Index">Empleados</a></li>
+                    <li class="active">Lista de empleados</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="content mt-5">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="pull-right" asp-action="create">
+                            <i class="fa sfa-user-plus fa-2x"></i>
+                        </a>
+                        <strong class="card-title">Lista de empleados </strong>
+
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="auto">
+                                        @Html.DisplayNameFor(model => model.Image)
+                                    </th>
+                                    <th scope="auto">
+                                        @Html.DisplayNameFor(model => model.Nombre)
+                                    </th>
+                                    <th scope="auto">
+                                        @Html.DisplayNameFor(model => model.Apellido)
+                                    </th>
+
+
+                                    <th scope="auto">
+                                        @Html.DisplayNameFor(model => model.Cargo)
+                                    </th>
+                                    <th scope="auto">
+                                        @Html.DisplayNameFor(model => model.Celular)
+                                    </th>
+                                    <th scope="auto">
+                                        @Html.DisplayNameFor(model => model.Sueldo)
+                                    </th>
+
+                                    <th scope="auto">
+                                        @Html.DisplayNameFor(model => model.FechaIngreso)
+                                    </th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+
+                                            <img class="userempleo" src="~/images/@Html.DisplayFor(modelItem => item.Image)" alt="">
+
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Apellido)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cargo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Celular)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Sueldo)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FechaIngreso)
+                                        </td>
+                                        <td>
+
+
+                                            <div class="btn-group">
+                                                <button type="button" class=" btn btn-outline-primary  animateBtn dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Acciones
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="btn btn-github col-lg-12 animateBtn" asp-action="Details" asp-route-id="@item.ID">Ver más</a>
+                                                    <div class="dropdown-divider "></div>
+                                                    <a class="btn btn-dropbox col-lg-12 animateBtn" asp-action="Edit" asp-route-id="@item.ID">Editar</a>
+                                                    <div class="dropdown-divider animateBtn"></div>
+                                                    <a class="btn btn-danger btn-block" asp-action="Delete" asp-route-id="@item.ID">Eliminar</a>
+                                                    @*<button asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary animateBtn" >Ver mas</button>*@
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            @*<a class="btn btn-instagram" asp-controller="Home" asp-action="Index" href="#Team">Ver en Metredi</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- .animated -->
+@*<div class="content mt-5">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.Nombre)
+                                        </th>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.Apellido)
+                                        </th>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.Sexo)
+                                        </th>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.Address)
+                                        </th>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.Cargo)
+                                        </th>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.Celular)
+                                        </th>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.Sueldo)
+                                        </th>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.FechaNacimiento)
+                                        </th>
+                                        <th scope="auto">
+                                            @Html.DisplayNameFor(model => model.FechaIngreso)
+                                        </th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+        {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Apellido)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Sexo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Address)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cargo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Celular)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Sueldo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaIngreso)
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-dropbox" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                                        <a class="btn btn-github" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                    </td>
+                                </tr>
+    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    </div>
+            </div>
+        </div>*@<!-- .animated -->
+
+
+
+
+
+<script src="~/assets/js/lib/data-table/datatables.min.js"></script>
+<script src="~/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="~/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="~/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="~/assets/js/lib/data-table/jszip.min.js"></script>
+<script src="~/assets/js/lib/data-table/pdfmake.min.js"></script>
+<script src="~/assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="~/assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="~/assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="~/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="~/assets/js/lib/data-table/datatables-init.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#bootstrap-data-table-export').DataTable();
+    });
+</script>
+
