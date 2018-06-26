@@ -40,6 +40,8 @@ namespace login.Controllers
         }
 
         // GET: PeopleDatas
+        [Authorize(Roles = "Administrador")]
+        
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);

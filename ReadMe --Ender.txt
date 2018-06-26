@@ -1,0 +1,1 @@
+Esta es la carpeta que esta sincronizada con el proyecto de github y la que tenemos local

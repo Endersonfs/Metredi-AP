@@ -10,6 +10,7 @@ using login.Models;
 using Microsoft.AspNetCore.Identity;
 using login.Services;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace login.Controllers
 {
@@ -35,6 +36,7 @@ namespace login.Controllers
         }
 
         // GET: Services
+        [Authorize (Roles = "Administrador")]
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -71,6 +73,7 @@ namespace login.Controllers
         }
 
         // GET: Services/Create
+        [Authorize(Roles ="Administrador")]
         public async Task<IActionResult> Create()
         {
             var user = await _userManager.GetUserAsync(User);

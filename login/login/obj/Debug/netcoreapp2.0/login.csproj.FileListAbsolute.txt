@@ -34,3 +34,15 @@ C:\Users\Endersonfs\Documents\Eventos_core-master\Eventos_core-master\login\logi
 C:\Users\Endersonfs\Documents\Eventos_core-master\Eventos_core-master\login\login\obj\Debug\netcoreapp2.0\login.AssemblyInfo.cs
 C:\Users\Endersonfs\Documents\Eventos_core-master\Eventos_core-master\login\login\obj\Debug\netcoreapp2.0\login.dll
 C:\Users\Endersonfs\Documents\Eventos_core-master\Eventos_core-master\login\login\obj\Debug\netcoreapp2.0\login.pdb
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\bin\Debug\netcoreapp2.0\login.deps.json
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\bin\Debug\netcoreapp2.0\login.runtimeconfig.json
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\bin\Debug\netcoreapp2.0\login.runtimeconfig.dev.json
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\bin\Debug\netcoreapp2.0\login.dll
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\bin\Debug\netcoreapp2.0\login.pdb
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\obj\Debug\netcoreapp2.0\login.csprojAssemblyReference.cache
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\obj\Debug\netcoreapp2.0\login.csproj.CoreCompileInputs.cache
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\obj\Debug\netcoreapp2.0\login.AssemblyInfoInputs.cache
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\obj\Debug\netcoreapp2.0\login.AssemblyInfo.cs
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\obj\Debug\netcoreapp2.0\login.dll
+C:\Users\Endersonfs\Documents\Eventos_core-master\Metredi-AP\login\login\obj\Debug\netcoreapp2.0\login.pdb

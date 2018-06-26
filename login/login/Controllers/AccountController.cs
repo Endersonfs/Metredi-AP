@@ -213,20 +213,24 @@ namespace login.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
 
-            ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            //probando sin la validacion
+            /*
+             * 
+                ViewData["ReturnUrl"] = returnUrl;
+                return View();
+             */
 
-            /*if (user == null)
+            if (user == null)
             {
 
-                //return RedirectToAction(nameof(AccountController.Nuevo),"Nuevo");
+                return RedirectToAction(nameof(login));
                 //throw new ApplicationException($"Necitas estar registrado para entrar a esta area '{_userManager.GetUserId(User)}'.");
             }
             else
             {
                 ViewData["ReturnUrl"] = returnUrl;
                 return View();
-            }*/
+            }
         }
 
         [HttpPost]

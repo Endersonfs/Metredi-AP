@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Authorization;
 
 namespace login.Controllers
 {
@@ -43,18 +44,19 @@ namespace login.Controllers
         }
 
         // GET: Galery
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-              return  RedirectToAction(nameof(AccountController.Login),"Account");
+                return RedirectToAction(nameof(AccountController.Login), "Account");
                 // throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
-            else { 
+            else {
 
-               return View(await _context.GaleryData.ToListAsync());
-                }
+                return View(await _context.GaleryData.ToListAsync());
+            }
         }
 
         // GET: Galery/Details/5
@@ -82,6 +84,7 @@ namespace login.Controllers
         }
 
         // GET: Galery/Create
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create()
         {
             var user = await _userManager.GetUserAsync(User);

@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace login.Controllers
 {
@@ -42,6 +43,7 @@ namespace login.Controllers
         }
 
         // GET: ChooseUs
+        [Authorize( Roles ="Administrador")]
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -83,6 +85,7 @@ namespace login.Controllers
         }
 
         // GET: ChooseUs/Create
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create()
         {
             var user = await _userManager.GetUserAsync(User);

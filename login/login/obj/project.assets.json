@@ -13131,11 +13131,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Endersonfs\\Documents\\Eventos_core-master\\Eventos_core-master\\login\\login\\login.csproj",
+      "projectUniqueName": "C:\\Users\\Endersonfs\\Documents\\Eventos_core-master\\Metredi-AP\\login\\login\\login.csproj",
       "projectName": "login",
-      "projectPath": "C:\\Users\\Endersonfs\\Documents\\Eventos_core-master\\Eventos_core-master\\login\\login\\login.csproj",
+      "projectPath": "C:\\Users\\Endersonfs\\Documents\\Eventos_core-master\\Metredi-AP\\login\\login\\login.csproj",
       "packagesPath": "C:\\Users\\Endersonfs\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Endersonfs\\Documents\\Eventos_core-master\\Eventos_core-master\\login\\login\\obj\\",
+      "outputPath": "C:\\Users\\Endersonfs\\Documents\\Eventos_core-master\\Metredi-AP\\login\\login\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
