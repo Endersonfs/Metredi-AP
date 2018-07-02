@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using login.Models;
 using login.Models.ManageViewModels;
+using login.Models.AccountViewModels;
 
 namespace login.Data
 {
@@ -37,6 +38,8 @@ namespace login.Data
         public string Nombre { get; set; }
 
         public DbSet<login.Models.ChooseUs> ChooseUs { get; set; }
+
+        public DbSet<login.Models.AccountViewModels.RegisterViewModel> RegisterViewModel { get; set; }
 
     }
 }

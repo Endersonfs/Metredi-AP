@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using login.Data;
+﻿using login.Data;
 using login.Models;
 using login.Models.PeopleViewModels;
-using System.IO;
 using login.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authorization;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace login.Controllers
 {
@@ -295,4 +292,5 @@ namespace login.Controllers
             return _context.PeopleData.Any(e => e.ID == id);
         }
     }
+    
 }

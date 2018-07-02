@@ -17,8 +17,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace login.Controllers
 {
+    
     public class ChooseUsController : Controller
     {
+        
         private readonly ApplicationDbContext _context;
         
         private IEmpleadosData _empleadosData;

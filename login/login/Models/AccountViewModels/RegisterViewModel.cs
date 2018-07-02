@@ -8,9 +8,12 @@ namespace login.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
+
+        
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
+        [Key]
         public string Email { get; set; }
 
         [Required]
@@ -23,5 +26,10 @@ namespace login.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        
+        [Required]
+        [Display(Name ="Tipo Rol")]
+        public string TipoRol { get; set; }
+
     }
 }

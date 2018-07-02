@@ -11,14 +11,14 @@ namespace login.Models
     public class ApplicationUser : IdentityUser
     {
    
-        //public string Nombre { get; set; }
-        //public string Apellido { get; set; }
-        //public string Address { get; set; }
-        //public string Cargo { get; set; }
-        //public string Celular { get; set; }
-        //public double Sueldo { get; set; }
-        //public DateTime FechaNacimiento { get; set; }
-        //public DateTime FechaIngreso { get; set; }
-        //public IFormFile Image { get; set; }
+        /*public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Address { get; set; }
+        public string Cargo { get; set; }
+        public string Celular { get; set; }
+        public double Sueldo { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public DateTime FechaIngreso { get; set; }
+        public IFormFile Image { get; set; }*/
     }
 }

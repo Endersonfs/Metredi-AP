@@ -207,35 +207,45 @@ namespace login.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpGet]
-        [AllowAnonymous]
+               
         public async Task<IActionResult> Nuevo(string returnUrl = null)
         {
-            var user = await _userManager.GetUserAsync(User);
+
+            //var user = await _userManager.GetUserAsync(User);
 
             //probando sin la validacion
+            /*ViewData["ReturnUrl"] = returnUrl;
+            return View();*/
             /*
-             * 
-                ViewData["ReturnUrl"] = returnUrl;
-                return View();
-             */
-
             if (user == null)
             {
-
-                return RedirectToAction(nameof(login));
+                return RedirectToAction(nameof(AccountController.Login));
                 //throw new ApplicationException($"Necitas estar registrado para entrar a esta area '{_userManager.GetUserId(User)}'.");
             }
             else
             {
                 ViewData["ReturnUrl"] = returnUrl;
                 return View();
+            }*/
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction(nameof(AccountController.Login), "Account");
+                // throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+            else
+            {
+                return View();
             }
         }
 
+        
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Nuevo(RegisterViewModel model, string returnUrl = null)
         {
 
@@ -270,9 +280,11 @@ namespace login.Controllers
                     }
                     else
                     {
-                        await _userManager.AddToRoleAsync(user, "Empleado");
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        _logger.LogInformation("User created a new account with password.");
+                        await _userManager.AddToRoleAsync(user, model.TipoRol); //agrega el usuario y su roll
+
+                        //inicia seccion del usuario registrado
+                       // await _signInManager.SignInAsync(user, isPersistent: false);
+                       // _logger.LogInformation("User created a new account with password.");
                     }
 
                     //nuevos roles
@@ -303,7 +315,7 @@ namespace login.Controllers
 
 
                     
-                    return RedirectToLocal(returnUrl);
+                   // return RedirectToLocal(returnUrl); --retorna al usuario al index
                 }
                 AddErrors(result);
             }
@@ -540,6 +552,31 @@ namespace login.Controllers
             {
                 ModelState.AddModelError(string.Empty, error.Description);
             }
+        }
+
+        public async Task<String> CreateUsuario(
+            String email, String phoneNumber, String passwordHash, String selectRole, ApplicationUser applicationUser)
+        {
+            var resp = "";
+            applicationUser = new ApplicationUser
+            {
+                UserName = email,
+                Email = email,
+                PasswordHash = passwordHash
+
+            };
+            var result = await _userManager.CreateAsync(applicationUser, passwordHash);
+            if (result.Succeeded)
+            {
+                await _userManager.CreateAsync(applicationUser, selectRole);
+                resp = "save";
+            }
+            else
+            {
+                resp = "NoSave";
+            }
+
+            return resp;
         }
 
         private IActionResult RedirectToLocal(string returnUrl)

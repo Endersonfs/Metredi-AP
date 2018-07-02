@@ -21,6 +21,25 @@ namespace login.Data.Migrations
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("login.Models.AccountViewModels.RegisterViewModel", b =>
+                {
+                    b.Property<string>("Email")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConfirmPassword");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("TipoRol")
+                        .IsRequired();
+
+                    b.HasKey("Email");
+
+                    b.ToTable("RegisterViewModel");
+                });
+
             modelBuilder.Entity("login.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
