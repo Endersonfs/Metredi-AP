@@ -1,0 +1,80 @@
+﻿@model login.Models.NotifIcationsViewModels.NotificationsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Manage/_Layout.cshtml";
+}
+<title>Dashboard - Notificaciones</title>
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a asp-controller="Manage" asp-action="Dashboard">Dashboard</a></li>
+                    <li><a>Notificaciones</a></li>
+
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <table class="table table-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Section)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Detalle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.Notificaciones)
+            {
+                <tr>
+                    <td>
+                        <i class="fa fa-@Html.DisplayFor(modelItem => item.Tipo)"></i>
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Section)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Detalle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |*@
+                        @*<form asp-action="Delete">
+                            <input value="@Html.DisplayFor(modelItem => item.ID)" />
+
+                            <input type="submit" value="Delete" class="btn btn-default" />
+
+                        </form>*@
+                        <a asp-action="Delete" title="Eliminar" asp-route-id="@item.ID"><i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

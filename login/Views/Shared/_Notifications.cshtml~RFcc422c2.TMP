@@ -1,0 +1,157 @@
+﻿@model login.Models.Notifications
+@using System.Globalization;
+
+<style>
+    .bg-flat-color-15 {
+        background: #cfd9dc;
+    }
+
+    .fa-check:before {
+        content: "\f00c";
+        color: #41770b;
+    }
+
+    .fa-close:before, .fa-times:before {
+        content: "\f00d";
+        color: #a20c0c;
+    }
+
+    .fa-warning::before,
+    .fa-exclamation-triangle:before {
+        content: "\f071";
+        color: #e8b210;
+    }
+</style>
+
+    <a class="dropdown-item media bg-flat-color-15" asp-action="Details" asp-route-id="@Model.ID">
+        <i class="fa fa-@Model.Tipo"></i>
+        <span class="message media-body">
+
+            <span class="name float-left">@Model.Section</span>
+
+            @{
+                var FA = DateTime.Now;
+                var FP = Model.Time;
+                var Ayer = FA.DayOfYear - FP.DayOfYear;
+                var MismoDia = FP.DayOfYear == FA.DayOfYear;
+                var MismaHora = FP.Hour == FA.Hour;
+                var MismoMinuto = FP.Minute == FA.Minute;
+                var EsteMes = FP.Month == FA.Month;
+                var EsteAno = FP.Year == FA.Year;
+                
+                ///JUSTO AHORA
+
+                if (MismoDia)
+                {
+                    if (EsteAno)
+                    {
+                        if (EsteMes)
+                        {
+                            if (MismaHora)
+                            {
+                                if (MismoMinuto)
+                                {
+                                     <span class="time float-right">Justo ahora </span>
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+                //Hoy
+                if (EsteAno)
+                {
+                    if (MismoDia)
+                    {
+                        if (FP.Hour <= FA.Hour)
+                        {
+                            if(FP.Minute != FA.Minute)
+                            {
+                                 <span class="time float-right">Hoy a las @Model.Time.Hour:@Model.Time.Minute   </span>
+
+                            }
+
+                        }
+
+                    }
+
+                }
+                //AYER
+                if (EsteAno)
+                {
+                    if (EsteMes)
+                    {
+                        if (Ayer == 1)
+                        {
+                                <span class="time float-right">Ayer a las @Model.Time.Hour:@Model.Time.Minute</span>
+                        }
+                    }
+                }
+                //Esta Semana
+                if (EsteAno)
+                {
+                    if (EsteMes)
+                    {
+                        if(Ayer != 1)
+                        {
+                            if (FP.DayOfYear != FA.DayOfYear)
+                            {
+                                CultureInfo ci = new CultureInfo("Es-Es");
+                                var SemanaPublicacion = ci.Calendar.GetWeekOfYear(FP.Date, CalendarWeekRule.FirstFullWeek, FP.DayOfWeek);
+                                var SemanaActual = ci.Calendar.GetWeekOfYear(FA.Date, CalendarWeekRule.FirstFullWeek, FA.DayOfWeek);
+                                if (SemanaPublicacion == SemanaActual)
+                                {
+                                     <span class="time float-right">El @ci.DateTimeFormat.GetDayName(FP.DayOfWeek) a las @FP.Hour:@FP.Minute </span>
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+                //Este mes
+                if (EsteAno)
+                {
+                    if (EsteMes)
+                    {
+                        if(Ayer != 1)
+                        {
+                            CultureInfo ci = new CultureInfo("Es-Es");
+                            var SemanaPublicacion = ci.Calendar.GetWeekOfYear(Model.Time.Date, CalendarWeekRule.FirstFullWeek, Model.Time.DayOfWeek);
+                            var SemanaActual = ci.Calendar.GetWeekOfYear(DateTime.Now.Date, CalendarWeekRule.FirstFullWeek, DateTime.Now.DayOfWeek);
+                            if (SemanaPublicacion < SemanaActual)
+                            {
+                        <span class="time float-right"> El @Model.Time.Day de @ci.DateTimeFormat.GetMonthName(Model.Time.Month)  a las @Model.Time.Hour:@Model.Time.Minute </span>
+                            }
+                        }
+                    }
+
+                }
+                //Hace Meses
+                if (EsteAno)
+                {
+                    if (FP.Month < FA.Month)
+                    {
+                         CultureInfo ci = new CultureInfo("Es-Es");
+                         <span class="time float-right"> El @FP.Day de @ci.DateTimeFormat.GetMonthName(FP.Month)  a las @FP.Hour:@FP.Minute </span>
+
+                    }
+
+                }
+                //Otro año
+                if(FP.Year != FA.Year)
+                {
+                    CultureInfo ci = new CultureInfo("Es-Es");
+                    <span class="time float-right">@FP.Day de @ci.DateTimeFormat.GetMonthName(FP.Month) del @FP.Year a las @FP.Hour:@FP.Minute </span>
+
+                }
+          }
+
+
+
+            <p>@Model.Detalle</p>
+        </span>
+    </a>

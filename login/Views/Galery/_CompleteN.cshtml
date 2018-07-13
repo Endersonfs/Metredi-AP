@@ -1,0 +1,24 @@
+﻿@model login.Models.GaleryViewModels.GaleryViewModel
+
+<div class="dropdown for-notification">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-bell"></i>
+        <span class="count bg-danger">@Model.Notificaciones.Count()</span>
+    </button>
+    <style>
+        .btn-adn {
+            margin-left: 60px;
+        }
+    </style>
+    <div class="dropdown-menu" aria-labelledby="notification">
+        <p class="red">Tienes @Model.Notificaciones.Count() Notificaciones.<a asp-action="Index" class=" btn btn-adn" asp-controller="Notifications"> Ver todas</a></p>
+
+        @foreach (var nota in Model.Notificaciones)
+        {
+
+            @await Html.PartialAsync("_Notifications", nota)
+
+        }
+
+    </div>
+</div>

@@ -1,0 +1,43 @@
+@using Microsoft.AspNetCore.Identity
+@using login.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <style>
+        .jaja{
+            color:white;
+            
+        }
+            .jaja:hover {
+                text-decoration: none;
+                opacity: 0.8;
+                outline: none;
+                color:white;
+            }
+        .dropis {
+            background-color: #151923B3;
+        }
+    </style>
+
+    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+        <ul class="main-nav nav navbar-nav navbar-right">
+            <li class="has-dropdown">
+                <a href="#blog">@UserManager.GetUserName(User)</a>
+                <ul class="dropdown dropis">
+                   <li><a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage"> Dashboard</a></li> 
+                    <button type="submit"  class="btn btn-link navbar-btn navbar-link jaja ">Cerrar Sesion</button>
+                </ul>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="main-nav nav navbar-nav navbar-right">
+        @*<li><a asp-area="" asp-controller="Account" asp-action="Nuevo">Register</a></li>*@
+        <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
+    </ul>
+}

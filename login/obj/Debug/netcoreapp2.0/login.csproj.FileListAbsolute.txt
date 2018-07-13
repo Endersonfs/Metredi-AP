@@ -1,0 +1,24 @@
+C:\Users\Jose Ismael\source\repos\login\login\bin\Debug\netcoreapp2.0\login.deps.json
+C:\Users\Jose Ismael\source\repos\login\login\bin\Debug\netcoreapp2.0\login.runtimeconfig.json
+C:\Users\Jose Ismael\source\repos\login\login\bin\Debug\netcoreapp2.0\login.runtimeconfig.dev.json
+C:\Users\Jose Ismael\source\repos\login\login\bin\Debug\netcoreapp2.0\login.dll
+C:\Users\Jose Ismael\source\repos\login\login\bin\Debug\netcoreapp2.0\login.pdb
+C:\Users\Jose Ismael\source\repos\login\login\obj\Debug\netcoreapp2.0\login.csprojResolveAssemblyReference.cache
+C:\Users\Jose Ismael\source\repos\login\login\obj\Debug\netcoreapp2.0\login.csproj.CoreCompileInputs.cache
+C:\Users\Jose Ismael\source\repos\login\login\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Jose Ismael\source\repos\login\login\obj\Debug\netcoreapp2.0\login.AssemblyInfoInputs.cache
+C:\Users\Jose Ismael\source\repos\login\login\obj\Debug\netcoreapp2.0\login.AssemblyInfo.cs
+C:\Users\Jose Ismael\source\repos\login\login\obj\Debug\netcoreapp2.0\login.dll
+C:\Users\Jose Ismael\source\repos\login\login\obj\Debug\netcoreapp2.0\login.pdb
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\bin\Debug\netcoreapp2.0\login.deps.json
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\bin\Debug\netcoreapp2.0\login.runtimeconfig.json
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\bin\Debug\netcoreapp2.0\login.runtimeconfig.dev.json
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\bin\Debug\netcoreapp2.0\login.dll
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\bin\Debug\netcoreapp2.0\login.pdb
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\obj\Debug\netcoreapp2.0\login.csprojAssemblyReference.cache
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\obj\Debug\netcoreapp2.0\login.csproj.CoreCompileInputs.cache
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\obj\Debug\netcoreapp2.0\login.AssemblyInfoInputs.cache
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\obj\Debug\netcoreapp2.0\login.AssemblyInfo.cs
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\obj\Debug\netcoreapp2.0\login.dll
+C:\Users\Endersonfs\Documents\Administracion de proyecto\proyecto1\version2\login\login\obj\Debug\netcoreapp2.0\login.pdb
